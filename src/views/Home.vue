@@ -3,7 +3,7 @@
     <v-row align="center" justify="center">
       <v-col class="text-center" cols="12">
         <v-layout class="d-flex align-center justify-center flex-wrap mb-4">
-          <h1 class="display-3 white--text font-weight-bold">Shonan Kandatsu</h1>
+          <h1 class="display-3 white--text font-weight-bold">Shonan Kandatsu's</h1>
           <v-img src="../assets/logo_white.png" max-width="80" class="ma-4"></v-img>
           <h1 class="display-3 white--text font-weight-bold">Portfolio</h1>
         </v-layout>

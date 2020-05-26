@@ -57,8 +57,10 @@
                         私のポートフォリオサイトです。
                         <br />Vue.js + Vuetifyをメインに使用したSPA（シングルページアプリケーション）になっています。
                         <br />モダンJavaScriptを使用してフロントリッチな実装にすることで、UI/UXを高めています。
-                        <br />また、AWS S3を用いて簡易的にサーバーレスを実現しました。
                         <br />UIコンポーネントを上手く活用してできるかぎりオシャレで見やすいサイトを目指しました。
+                        <br />
+                        <br />また、AWS S3・CloudFrontを用いて簡易的にサーバーレスを実現しました。
+                        <br />GitHubとCircleCIを連携してCI/CD（自動テスト/自動デプロイ）を行っています。
                       </p>
                       <v-btn color="primary" href="/" target="_blank" outlined small>
                         ポートフォリオサイトへ
@@ -249,7 +251,20 @@ export default {
       dialog1: false,
       dialog2: false,
       dialog3: false,
-      tags1: ['Vue.js', 'Vue CLI', 'Vue Router', 'TypeScript', 'Vuetify', 'Chart.js', 'AWS S3', 'AWS Route53'],
+      tags1: [
+        'Vue.js',
+        'Vue CLI',
+        'Vue Router',
+        'TypeScript',
+        'Vuetify',
+        'Chart.js',
+        'AWS S3',
+        'AWS Route53',
+        'AWS CloudFront',
+        'AWS Lamda',
+        'CircleCI',
+        'GitHub',
+      ],
       tags2: ['jQuery', 'JavaScript', 'Bootstrap', 'Chrome API'],
       tags3: ['Laravel', 'Vue.js', 'Vue Router', 'Vuex', 'Vuetify', 'MySQL'],
     };

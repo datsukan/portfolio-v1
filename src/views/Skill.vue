@@ -35,6 +35,17 @@
             </v-card-text>
           </v-col>
         </v-row>
+        <v-row align="center" justify="center" class="my-12" dense>
+          <v-col cols="12" sm="10" md="8" lg="6" class="text-center">
+            <p class="text-left">
+              Web領域におけるフロントエンド開発・バックエンド開発をどちらも行えます。
+              <br />フロントエンドではVue.jsとUIコンポーネントを用いたフロントリッチなアプリケーション、
+              <br />バックエンドではPHP + Laravelを用いたフルスタックな開発を得意としています。
+              <br />設計・開発・環境構築・リリースまで一気通貫で担当することが多いです。
+              <br />機能要件の実現だけでなく、実行環境の構築や性能・セキュリティといった非機能要件にも一定の知見があります。
+            </p>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
