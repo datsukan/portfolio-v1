@@ -11,7 +11,7 @@
           </v-col>
           <v-col cols="12" md="6">
             <div class="text-left">
-              <p class="headline mb-5">神達 小楠 （かんだつ しょうなん）</p>
+              <h4 class="headline mb-5">神達 小楠 （かんだつ しょうなん）</h4>
               <p>
                 平成11年（1999年）生まれの21歳。
                 <br />受託開発企業にてウォーターフォール型のWeb開発を小規模～大規模まで経験。
