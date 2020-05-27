@@ -6,51 +6,78 @@
         <v-row align="center" justify="center" dense>
           <v-col cols="12" md="9" lg="6" class="text-left">
             <p>
-              最後までご覧いただきありがとうございました。<br />
-              このサイトを通して私のことを少しでも知っていただけたのなら嬉しいです。<br />
-              もしこのサイトや私について何かコメントがありましたら、下記のフォームをご利用ください。<br />
+              最後までご覧いただきありがとうございました。
+              <br />このサイトを通して私のことを少しでも知っていただけたのなら嬉しいです。
+              <br />もしこのサイトや私について何かコメントがありましたら、下記のフォームをご利用ください。
+              <br />
             </p>
           </v-col>
         </v-row>
         <v-form ref="form">
           <v-row align="center" justify="center" dense>
             <v-col cols="12" md="9" lg="6">
-              <v-text-field label="お名前" color="orange" :counter="50" :rules="rules.name"></v-text-field>
+              <v-text-field
+                label="お名前"
+                color="orange"
+                :counter="50"
+                :rules="rules.name"
+                v-model="sendForm.name"
+              ></v-text-field>
             </v-col>
           </v-row>
           <v-row align="center" justify="center" dense>
             <v-col cols="12" md="9" lg="6">
-              <v-text-field label="メールアドレス" color="orange" :rules="rules.email"></v-text-field>
+              <v-text-field
+                label="メールアドレス"
+                color="orange"
+                :rules="rules.email"
+                v-model="sendForm.email"
+              ></v-text-field>
             </v-col>
           </v-row>
           <v-row align="center" justify="center" dense>
             <v-col cols="12" md="9" lg="6">
-              <v-textarea label="内容" color="orange" :counter="2000" :rules="rules.content"></v-textarea>
+              <v-textarea
+                label="内容"
+                color="orange"
+                :counter="2000"
+                :rules="rules.content"
+                v-model="sendForm.content"
+              ></v-textarea>
             </v-col>
           </v-row>
           <v-row align="center" justify="center" dense>
             <v-col cols="12" md="9" lg="6">
-              <v-btn color="success" width="100%" @click="submit()">送信</v-btn>
+              <v-btn color="success" width="100%" @click="submit()" :disabled="isConnecting">送信</v-btn>
             </v-col>
           </v-row>
         </v-form>
       </v-col>
     </v-row>
     <v-snackbar v-model="snackbar">
-      送信しました
-      <v-btn color="success" text @click="snackbar = false">
-        Close
-      </v-btn>
+      {{ resultMessage }}
+      <v-btn :color="result ? 'success' : 'error'" text @click="snackbar = false">Close</v-btn>
     </v-snackbar>
   </v-container>
 </template>
 
 <script>
+import emailjs from 'emailjs-com';
+
 export default {
   name: 'Contact',
   data() {
     return {
       snackbar: false,
+      isConnecting: false,
+      result: true,
+      resultMessage: '',
+      mailSettings: {
+        serviceId: 'gmail',
+        templateId: 'template_portfolio',
+        userId: 'user_qrCg0jqvB3t0jCvhDFUq3',
+      },
+      sendForm: {},
       rules: {
         name: [
           v => !!v || 'お名前は必須です。',
@@ -68,7 +95,10 @@ export default {
     };
   },
   beforeCreate() {},
-  created() {},
+  created() {
+    this.crearFrom();
+    emailjs.init(this.mailSettings.userId);
+  },
   beforeMount() {},
   mounted() {},
   beforeUpdate() {},
@@ -76,9 +106,37 @@ export default {
   methods: {
     submit() {
       if (this.validate()) {
-        this.reset();
-        this.snackbar = true;
+        this.sendEmail();
       }
+    },
+    sendEmail() {
+      this.isConnecting = true;
+      emailjs.send(this.mailSettings.serviceId, this.mailSettings.templateId, this.sendForm).then(
+        result => {
+          this.reset();
+          this.result = true;
+          this.resultMessage = '送信しました';
+          this.snackbar = true;
+          this.isConnecting = false;
+        },
+        error => {
+          console.log(error);
+          this.result = false;
+          this.resultMessage = '送信に失敗しました';
+          this.snackbar = true;
+          this.isConnecting = false;
+        }
+      );
+    },
+    crearFrom() {
+      this.result = true;
+      this.resultMessage = '';
+      this.snackbar = false;
+      this.sendForm = {
+        name: '',
+        email: '',
+        content: '',
+      };
     },
     validate() {
       return this.$refs.form.validate();

@@ -10,6 +10,7 @@
     "@types/chart.js": "^2.9.21",
     "chart.js": "^2.9.3",
     "core-js": "^3.6.4",
+    "emailjs-com": "^2.4.1",
     "vue": "^2.6.11",
     "vue-chartjs": "^3.5.0",
     "vue-class-component": "^7.2.3",
