@@ -16,3 +16,7 @@ Notionで置き換えしてサイトは停止済み。
 # Author \ 著者
 
 神達 小楠
+
+# License \ ライセンス
+
+[BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)
