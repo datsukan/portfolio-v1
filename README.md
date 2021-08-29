@@ -1,19 +1,15 @@
-# portfolio
+# ポートフォリオサイト
 
-## Project setup
-```
-npm install
-```
+Vue.js + Nuxt.js + Vuetifyで作成したポートフォリオサイトです。
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- Hero
+- 自己紹介
+- スキル
+- ポートフォリオ
+- 問い合わせフォーム
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Notionで置き換えしてサイトは停止済み。
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Author \ 著者
+
+神達 小楠
