@@ -15,7 +15,7 @@ Notionで置き換えしてサイトは停止済み。
 
 # Author \ 著者
 
-神達 小楠
+datsukan
 
 # License \ ライセンス
 
